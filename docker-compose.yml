@@ -1,0 +1,14 @@
+services:
+  # Notre Backend Java
+  backend-service:
+    build: ./backend-java
+    ports:
+      - "8081:8080" # Accessible sur localhost:8081
+
+  # Notre Frontend PHP
+  frontend-service:
+    build: ./frontend-php
+    ports:
+      - "8080:80"   # Accessible sur localhost:8080
+    depends_on:
+      - backend-service
